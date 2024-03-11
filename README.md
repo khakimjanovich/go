@@ -1,2 +1,2 @@
-# Return and handle error
+# Return a random greeting
 
