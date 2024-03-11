@@ -1,33 +1,17 @@
-# Dependency tracking for your code
+# Brief info about go module
 
-```NOTE```
-Go takes an unusual approach to dependency management, in that it is source-based instead of
-artifact-based. In an artifact-based dependency management system, packages consist of artifacts
-generated from source code and are stored in a separate repository system from source code.
+```NOTE``` In a module, you collect one or more related packages for a discrete and useful set of functions.
 
+Go code is grouped into packages, and packages are grouped into modules. Your module specifies dependencies
+needed to run your code, including the Go version and the set of other modules it requires.
 
-When your code imports packages contained in other modules, you manage those dependencies  through
-your code's own module. That module is defined by a go.mod file that tracks the modules that provide 
-those packages. That go.mod file stays with your code, including your source code repository
+As you add or improve functionality in your, you publish new versions of the module. Developers writing code 
+that calls functions in your module can import the module's updated packages and test with the new version 
+before putting it into production use.
 
-To enable dependency tracking for your code by creating a go.mod file, run the go mod init command, 
-giving it the name of the module your code will be in.
+Module is started by using the go mod init command.
 
-In actual development, the module path will typically be the repository location where your source code 
-will be kept. For example, the module path might be github.com/mymodule. if you plan to publish your module 
-for others to use, the module path must be a location from which Go tools can download your module.
-
-For learning purposes, we run the command that is written below
-```bash 
- $ go mod init example/hello
- go: creating new go.mod: module example/hello
-```
-And we created hello.go file. You can check the code out from the file
-
-After writing our logic to our file. We must run to see the result. In order to run the code write this
-
-```bash
-$ go run .
-here you can see the result! 
-```
+Run the go mod init command, giving it your module path -- here we use example.com/greetings. if you publish 
+a module, this must be a path from which your module code can be downloaded by Go tools. That would be your 
+code's repository
 
